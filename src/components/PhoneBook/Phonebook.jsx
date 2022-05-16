@@ -16,7 +16,7 @@ class Phonebook extends Component {
         ) {
             return (alert(`${contact.name} is already in contact`))
         }
-        
+
         this.setState((prevState) => ({
             contacts: [...prevState.contacts, contact]
         })
@@ -46,7 +46,7 @@ class Phonebook extends Component {
 
                 <h2>Contacts</h2>
                 <Filter onChange={this.handleChangeFilter} value={this.state.filter}/>
-                <ContactList list={this.handleFilterContacts()} onRemove={this.handleCreateContact}/>
+                <ContactList list={this.handleFilterContacts()} onRemove={this.handleRemoveContact}/>
             </>
             
         )
