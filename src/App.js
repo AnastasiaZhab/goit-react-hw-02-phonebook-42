@@ -1,9 +1,6 @@
-import "./App.css";
 import { Component } from "react";
-// import ContactForm from "./components/ContactForm";
 import Phonebook from "./components/Phonebook";
-// import Filter from "./components/Filter";
-// import ContactList from "./components/ContactList";
+import s from "./App.module.css";
 
 class App extends Component {
   state = {
@@ -13,7 +10,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className={s.container}>
         <Phonebook />
       </div>
     );
