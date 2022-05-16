@@ -10,10 +10,23 @@ class Phonebook extends Component {
     }
 
     handleCreateContact = (contact) => {
+        const { contacts } = this.state;
+
+        if (contacts.find(({ name }) =>  name.trim().toLowerCase() === contact.name.trim().toLowerCase() )
+        ) {
+            return (alert(`${contact.name} is already in contact`))
+        }
+        
         this.setState((prevState) => ({
             contacts: [...prevState.contacts, contact]
         })
         )
+    };
+
+    handleRemoveContact = ({ id }) => {
+        this.setState((prevState) => ({
+            contacts: prevState.contacts.filter((contact) => contact.id !== id)
+        }))
     };
 
     handleChangeFilter = (e) => this.setState({ filter: e.target.value });
@@ -21,7 +34,7 @@ class Phonebook extends Component {
     handleFilterContacts = () => {
         const { contacts, filter } = this.state;
         return (
-            contacts.filter(contact => contact.name.includes(filter))
+            contacts.filter(contact => contact.name.toLowerCase().includes(filter.trim().toLowerCase()))
         )
     }
 
@@ -33,7 +46,7 @@ class Phonebook extends Component {
 
                 <h2>Contacts</h2>
                 <Filter onChange={this.handleChangeFilter} value={this.state.filter}/>
-                <ContactList list={this.handleFilterContacts()}/>
+                <ContactList list={this.handleFilterContacts()} onRemove={this.handleCreateContact}/>
             </>
             
         )

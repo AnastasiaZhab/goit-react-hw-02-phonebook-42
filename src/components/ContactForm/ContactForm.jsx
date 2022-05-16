@@ -1,9 +1,13 @@
 import { Component } from "react";
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { nanoid } from "nanoid";
 
 
 class ContactForm extends Component {
+    static propTypes = {
+        onSubmit: PropTypes.func.isRequired,
+    };
+
     state = {
         name: "",
         number: ""
@@ -58,9 +62,4 @@ class ContactForm extends Component {
 
 export default ContactForm;
 
-// ContactForm.propTypes = {
-//     name: PropTypes.string.isRequired,
-//     value: PropTypes.string.isRequired,
-//     number: PropTypes.number.isRequired
-// }
 

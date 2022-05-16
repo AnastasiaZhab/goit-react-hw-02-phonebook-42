@@ -1,7 +1,7 @@
 import "./App.css";
 import { Component } from "react";
 // import ContactForm from "./components/ContactForm";
-import Phonebook from "./components/PhoneBook/Phonebook";
+import Phonebook from "./components/Phonebook";
 // import Filter from "./components/Filter";
 // import ContactList from "./components/ContactList";
 
@@ -15,9 +15,6 @@ class App extends Component {
     return (
       <div>
         <Phonebook />
-
-        {/* <Filter />
-        <ContactList /> */}
       </div>
     );
   }
